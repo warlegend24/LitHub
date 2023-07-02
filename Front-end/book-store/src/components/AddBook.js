@@ -1,8 +1,14 @@
 import { Box, Button, Checkbox, FormControlLabel, FormLabel, TextField } from '@mui/material';
 import axios from 'axios';
 import React,{useState} from 'react';
+import { NavLink, useNavigate } from 'react-router-dom';
 
 const AddBook = () => {
+
+  //hooks:-
+  const navigator = useNavigate();
+
+
   //State variables:-
   const [checked,setChecked] = useState(false);
   //to manage each of the field of the form we use a dynamic state variable:-
@@ -40,6 +46,8 @@ const AddBook = () => {
     })
     .then((response)=>{
       console.log(response.data);
+      navigator("/books");
+
     })
     .catch((err)=>{
       console.log(err);
